@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public PlayerManager player;
     void Start()
     {
         
@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       if(!player.isAlive)
+        {
+            player.RestartPlayer();
+        }
     }
 }

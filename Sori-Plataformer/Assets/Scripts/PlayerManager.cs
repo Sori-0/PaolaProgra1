@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private bool isAlive = true ;
+    public bool isAlive = true ;
     [SerializeField]
     private float healthTimer = 0.5f;
     [SerializeField]
     private int layerInt = 7;
-    
+    [SerializeField]
+    Transform respawnPoint;
+    [SerializeField]
     private int healthPoints = 100;
     SpriteRenderer sprite;
     
@@ -55,8 +57,11 @@ public class PlayerManager : MonoBehaviour
     {
         sprite.color = Color.red;
     }
-    private void RestartPlayer()
+    public void RestartPlayer()
     {
-
+        gameObject.transform.position = respawnPoint.position;
+        sprite.color = Color.white;
+        healthPoints = 10;
+        isAlive = true;
     }
 }
