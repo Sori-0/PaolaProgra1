@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
             DoubleJump = 0;
         }
+
     }
     public void DisableMovement()
     {

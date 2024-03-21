@@ -69,6 +69,14 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Win");
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+
+
+        }
+    }
     private void playerLose()
     {
         sprite.color = Color.red;
@@ -90,4 +98,5 @@ public class PlayerManager : MonoBehaviour
 
         }
     }
+   
 }
