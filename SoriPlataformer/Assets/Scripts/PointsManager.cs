@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PointsManager : MonoBehaviour
 {
-    public static PointsManager instance;
+    public static PointsManager Instance;
     int points;
 
     void Start()
@@ -19,14 +19,17 @@ public class PointsManager : MonoBehaviour
     public void AddPoints(int pointsToAdd)
     {
         points += pointsToAdd;
+        Debug.Log(points);
     }
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
-            instance = this;
+            Instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 }

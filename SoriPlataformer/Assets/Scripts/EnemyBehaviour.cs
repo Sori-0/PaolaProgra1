@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             parent.SetActive(false);
-            PointsManager.instance.AddPoints(5);
+            PointsManager.Instance.AddPoints(5);
         }
     }
 }

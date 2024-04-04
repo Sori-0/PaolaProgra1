@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private PlayerMovement playerMovement;
+    public Timer timerLevel;
     public bool isAlive = true;
     private int healthPoints = 10;
     private float healthTimer = 0.5f;
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     private int lives = 3;
     private float timeReset = 2f;
     private bool death = false;
+    PointsManager Instance;
 
     void Start()
     {
@@ -66,7 +68,10 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Win")
         {
+            timerLevel.TimerUPGetSet = true;
+            int timerPoints = (int)timerLevel.ReturnTimer();
             Debug.Log("Win");
+            PointsManager.Instance.AddPoints(timerPoints);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
